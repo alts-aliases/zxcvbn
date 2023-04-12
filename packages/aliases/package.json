@@ -1,6 +1,6 @@
 {
   "name": "@aliases/zxcvbn",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Low-budget password strength estimates, powered by Demo Macro.",
   "main": "dist/index.mjs",
   "types": "dist/index.d.ts",

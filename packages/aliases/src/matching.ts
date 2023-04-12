@@ -187,7 +187,13 @@ const matching = {
     const password_lower = password.toLowerCase();
     for (const dictionary_name in _ranked_dictionaries) {
       const ranked_dict = _ranked_dictionaries[dictionary_name];
-      let i, o, ref, j, p, ref1, ref2;
+      let i;
+      let o;
+      let ref;
+      let j;
+      let p;
+      let ref1;
+      let ref2;
       for (
         i = o = 0, ref = len;
         0 <= ref ? o < ref : o > ref;
@@ -305,7 +311,7 @@ const matching = {
           let p;
           for (let v = (p = 0), len2 = assoc.length; p < len2; v = ++p) {
             const k = assoc[v];
-            results.push(k + "," + v);
+            results.push(`${k},${v}`);
           }
           return results;
         })().join("-");
@@ -330,7 +336,9 @@ const matching = {
         for (let p = 0, len2 = subs.length; p < len2; p++) {
           const sub = subs[p];
           let dup_l33t_index = -1;
-          let i, q, ref1;
+          let i;
+          let q;
+          let ref1;
           for (
             i = q = 0, ref1 = sub.length;
             0 <= ref1 ? q < ref1 : q > ref1;
@@ -385,7 +393,8 @@ const matching = {
       }
       const subbed_password = this.translate(password, sub);
       const ref1 = this.dictionary_match(subbed_password, _ranked_dictionaries);
-      let p, len2;
+      let p;
+      let len2;
       for (p = 0, len2 = ref1.length; p < len2; p++) {
         const match = ref1[p];
         const token = password.slice(match.i, +match.j + 1 || 9e9);
@@ -520,7 +529,8 @@ const matching = {
     const lazy = /(.+?)\1+/g;
     const lazy_anchored = /^(.+?)\1+$/;
     let lastIndex = 0;
-    let base_token, match;
+    let base_token;
+    let match;
     while (lastIndex < password.length) {
       greedy.lastIndex = lazy.lastIndex = lastIndex;
       const greedy_match = greedy.exec(password);
@@ -585,7 +595,10 @@ const matching = {
       return [];
     }
     const update = (i, j, delta) => {
-      let ref, sequence_name, sequence_space, token;
+      let ref;
+      let sequence_name;
+      let sequence_space;
+      let token;
       if (j - i > 1 || Math.abs(delta) === 1) {
         if (0 < (ref = Math.abs(delta)) && ref <= this.MAX_DELTA) {
           token = password.slice(i, +j + 1 || 9e9);
@@ -619,7 +632,9 @@ const matching = {
     const result = [];
     let i = 0;
     let last_delta = null;
-    let k, o, ref;
+    let k;
+    let o;
+    let ref;
     for (
       k = o = 1, ref = password.length;
       1 <= ref ? o < ref : o > ref;
@@ -694,7 +709,18 @@ const matching = {
     // same separator
     // day, month, year
     // dates without separators are between length 4 '1191' and 8 '11111991'
-    let i, o, ref, j, p, ref1, ref2, ref5, s, t, ref6, ref7;
+    let i;
+    let o;
+    let ref;
+    let j;
+    let p;
+    let ref1;
+    let ref2;
+    let ref5;
+    let s;
+    let t;
+    let ref6;
+    let ref7;
     for (
       i = o = 0, ref = password.length - 4;
       0 <= ref ? o <= ref : o >= ref;
@@ -801,7 +827,10 @@ const matching = {
     // to reduce noise, remove date matches that are strict substrings of others
     return this.sorted(
       matches.filter(function (match) {
-        let is_submatch, len3, other_match, u;
+        let is_submatch;
+        let len3;
+        let other_match;
+        let u;
         is_submatch = false;
         for (u = 0, len3 = matches.length; u < len3; u++) {
           other_match = matches[u];

@@ -49,7 +49,8 @@ const feedback = {
     return feedback;
   },
   get_match_feedback: function (match, is_sole_match) {
-    let layout, warning;
+    let layout;
+    let warning;
     switch (match.pattern) {
       case "dictionary":
         return this.get_dictionary_match_feedback(match, is_sole_match);

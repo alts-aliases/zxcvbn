@@ -23,6 +23,7 @@ const zxcvbn = function (password: string, user_inputs = []) {
   }
   matching.set_user_input_dictionary(sanitized_inputs);
   const matches = matching.omnimatch(password);
+  // rome-ignore lint/suspicious/noExplicitAny: <explanation>
   const result: any = scoring.most_guessable_match_sequence(password, matches);
   result.calc_time = time() - start;
   const attack_times = time_estimates.estimate_attack_times(result.guesses);
