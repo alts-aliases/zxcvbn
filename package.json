@@ -1,0 +1,49 @@
+{
+  "name": "@alts-aliases/zxcvbn",
+  "version": "0.0.0",
+  "description": "Low-budget password strength estimates, powered by Demo Macro.",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r prepack",
+    "check": "rome check . --apply-unsafe && pnpm rome format . --write",
+    "format": "prettier --write --list-different . --ignore-path .gitignore",
+    "postinstall": "githooks install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alts-aliases/zxcvbn.git"
+  },
+  "keywords": [
+    "password",
+    "passphrase",
+    "security",
+    "authentication",
+    "strength",
+    "meter",
+    "quality",
+    "estimation",
+    "pattern",
+    "cracking",
+    "scoring",
+    "entropy",
+    "bruteforce"
+  ],
+  "author": {
+    "name": "Demo Macro",
+    "email": "abc@imst.xyz",
+    "url": "https://imst.xyz/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alts-aliases/zxcvbn/issues"
+  },
+  "homepage": "https://github.com/alts-aliases/zxcvbn#readme",
+  "devDependencies": {
+    "@funish/githooks": "edge",
+    "@funish/githooks-config": "edge",
+    "@funish/lint": "edge",
+    "prettier": "2.8.4",
+    "rome": "12.0.0",
+    "unbuild": "1.2.0"
+  }
+}
