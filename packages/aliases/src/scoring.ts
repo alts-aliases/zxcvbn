@@ -46,7 +46,9 @@ const scoring = {
       return 1;
     }
     let r = 1;
-    let d, o, ref;
+    let d;
+    let o;
+    let ref;
     for (
       d = o = 1, ref = k;
       1 <= ref ? o <= ref : o >= ref;
@@ -70,7 +72,9 @@ const scoring = {
       return 1;
     }
     let f = 1;
-    let i, o, ref;
+    let i;
+    let o;
+    let ref;
     for (
       i = o = 2, ref = n;
       2 <= ref ? o <= ref : o >= ref;
@@ -121,7 +125,9 @@ const scoring = {
     // partition matches into sublists according to ending index j
     const matches_by_j = (function () {
       const results = [];
-      let _, ref, o;
+      let _;
+      let ref;
+      let o;
       for (
         _ = o = 0, ref = n;
         0 <= ref ? o < ref : o > ref;
@@ -149,7 +155,9 @@ const scoring = {
       // a shorter match sequence spanning the same prefix, optimal.m[k][l] is undefined.
       m: (function () {
         const results = [];
-        let _, u, ref;
+        let _;
+        let u;
+        let ref;
         for (
           _ = u = 0, ref = n;
           0 <= ref ? u < ref : u > ref;
@@ -163,7 +171,9 @@ const scoring = {
       // optimal.pi allows for fast (non-looping) updates to the minimization function.
       pi: (function () {
         const results = [];
-        let _, u, ref;
+        let _;
+        let u;
+        let ref;
         for (
           _ = u = 0, ref = n;
           0 <= ref ? u < ref : u > ref;
@@ -176,7 +186,9 @@ const scoring = {
       // same structure as optimal.m -- holds the overall metric.
       g: (function () {
         const results = [];
-        let _, u, ref;
+        let _;
+        let u;
+        let ref;
         for (
           _ = u = 0, ref = n;
           0 <= ref ? u < ref : u > ref;
@@ -226,7 +238,9 @@ const scoring = {
       const m = make_bruteforce_match(0, k);
       update(m, 1);
       const results = [];
-      let i, u, ref;
+      let i;
+      let u;
+      let ref;
       for (
         i = u = 1, ref = k;
         1 <= ref ? u <= ref : u >= ref;
@@ -274,6 +288,7 @@ const scoring = {
       const optimal_match_sequence = [];
       let k = n - 1;
       let l = void 0;
+      // rome-ignore lint/correctness/noPrecisionLoss: <explanation>
       let g = 2e308;
       const ref = optimal.g[k];
       for (const candidate_l in ref) {
@@ -291,7 +306,9 @@ const scoring = {
       }
       return optimal_match_sequence;
     };
-    let k, u, ref;
+    let k;
+    let u;
+    let ref;
     for (
       k = u = 0, ref = n;
       0 <= ref ? u < ref : u > ref;
@@ -464,7 +481,9 @@ const scoring = {
     return results;
   })().length,
   spatial_guesses: function (match) {
-    let ref, s, d;
+    let ref;
+    let s;
+    let d;
     if ((ref = match.graph) === "qwerty" || ref === "dvorak") {
       s = this.KEYBOARD_STARTING_POSITIONS;
       d = this.KEYBOARD_AVERAGE_DEGREE;
@@ -476,7 +495,14 @@ const scoring = {
     const L = match.token.length;
     const t = match.turns;
     // estimate the number of possible patterns w/ length L or less with t turns or less.
-    let i, o, ref1, j, q, ref2, u, ref3;
+    let i;
+    let o;
+    let ref1;
+    let j;
+    let q;
+    let ref2;
+    let u;
+    let ref3;
     for (
       i = o = 2, ref1 = L;
       2 <= ref1 ? o <= ref1 : o >= ref1;
@@ -569,7 +595,9 @@ const scoring = {
       return results;
     })().length;
     let variations = 0;
-    let i, q, ref1;
+    let i;
+    let q;
+    let ref1;
     for (
       i = q = 1, ref1 = Math.min(U, L);
       1 <= ref1 ? q <= ref1 : q >= ref1;
@@ -619,7 +647,9 @@ const scoring = {
         // with aa44a, U = 3, S = 2, attacker needs to try unsubbed + one sub + two subs
         const p = Math.min(U, S);
         let possibilities = 0;
-        let i, o, ref1;
+        let i;
+        let o;
+        let ref1;
         for (
           i = o = 1, ref1 = p;
           1 <= ref1 ? o <= ref1 : o >= ref1;
