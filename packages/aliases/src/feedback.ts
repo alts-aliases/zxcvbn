@@ -97,7 +97,6 @@ const feedback = {
     }
   },
   get_dictionary_match_feedback: function (match, is_sole_match) {
-    let ref;
     const warning =
       match.dictionary_name === "passwords"
         ? is_sole_match && !match.l33t && !match.reversed
@@ -113,14 +112,14 @@ const feedback = {
         ? is_sole_match
           ? "A word by itself is easy to guess"
           : void 0
-        : (ref = match.dictionary_name) === "surnames" ||
-          ref === "male_names" ||
-          ref === "female_names"
+        : ["surnames", "male_names", "female_names"].includes(
+            match.dictionary_name
+          )
         ? is_sole_match
           ? "Names and surnames by themselves are easy to guess"
           : "Common names and surnames are easy to guess"
         : "";
-    const suggestions = [];
+    const suggestions = [] as string[];
     const word = match.token;
     if (word.match(scoring.START_UPPER)) {
       suggestions.push("Capitalization doesn't help very much");
